@@ -12,8 +12,6 @@ declare module 'diagnostics_channel' {
     publish: (message: T) => void;
   }
 
-  type channelFn<T> = (name: string | symbol) => Channel<T>;
-
   export interface DiagnosticsChannel {
     channel: <T>(name: string | symbol) => Channel<T>;
     hasSubscribers: (channelName: string | symbol) => boolean;
