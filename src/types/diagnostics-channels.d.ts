@@ -1,14 +1,21 @@
 declare module 'diagnostics_channel' {
-  export class Channel {
+  export class Channel<T> {
     name: string | symbol;
     hasSubscribers: boolean;
     _subscribers: any[];
-    subscribe: <T>(message: T, channelName: string | symbol) => void;
-    unsubscribe: <T>(message: T, channelName: string | symbol) => void;
-    publish: <T>(message: T) => void;
+    subscribe: (
+      onMessage: (message: T, channelName: string | symbol) => void
+    ) => void;
+    unsubscribe: (
+      onMessage: (message: T, channelName: string | symbol) => void
+    ) => void;
+    publish: (message: T) => void;
   }
+
+  type channelFn<T> = (name: string | symbol) => Channel<T>;
+
   export interface DiagnosticsChannel {
-    channel: (name: string | symbol) => Channel;
+    channel: <T>(name: string | symbol) => Channel<T>;
     hasSubscribers: (channelName: string | symbol) => boolean;
   }
 

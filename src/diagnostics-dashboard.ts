@@ -1,9 +1,14 @@
 import dc, { Channel } from 'diagnostics_channel';
 
-class DiagnosticsDashboard {
-  // private channels: Map<string | symbol, Channel>;
-  constructor(private channels: Map<string | symbol, Channel>) {}
-  subscribe(channel: Channel): void {
+export default class DiagnosticsDashboard {
+  constructor(
+    private readonly channels: Map<string | symbol, Channel<any>> = new Map()
+  ) {}
+  subscribe<T>(channel: Channel<T>): void {
     this.channels.set(channel.name, channel);
+
+    channel.subscribe((message, channelName) => {
+      console.log({ channelName, message });
+    });
   }
 }
