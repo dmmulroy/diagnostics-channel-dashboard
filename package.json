@@ -1,0 +1,28 @@
+{
+  "name": "diagnostics-channel-dashboard",
+  "version": "0.0.1",
+  "description": "A dashboard for Node 15's experimental diagnostics_channel API",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "tsc && node dist/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dmmulroy/diagnostics-channel-dashboard.git"
+  },
+  "keywords": [
+    "Node"
+  ],
+  "author": "Dillon Mulroy <dillon.mulroy@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dmmulroy/diagnostics-channel-dashboard/issues"
+  },
+  "homepage": "https://github.com/dmmulroy/diagnostics-channel-dashboard#readme",
+  "devDependencies": {
+    "@types/node": "^14.14.6",
+    "tslint": "^6.1.3",
+    "typescript": "^4.0.5"
+  }
+}
