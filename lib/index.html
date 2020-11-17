@@ -1,0 +1,28 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>DCDB Test Page</title>
+
+</head>
+
+<body>
+  <h1>Data:</h1>
+  <ul id="data-list"></ul>
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    const socket = io();
+    socket.on('message', data => {
+      const list = document.getElementById('data-list');
+      const newListItem = document.createElement('li');
+      newListItem.innerText = JSON.stringify(data, null, 2);
+      list.appendChild(newListItem);
+    })
+
+  </script>
+</body>
+
+</html>
